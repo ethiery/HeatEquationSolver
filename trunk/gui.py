@@ -4,7 +4,7 @@ import matplotlib
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import heatEquation
+import trunk.heatEquation as hE
 
 
 class LabelledIntegralInputFrame:
@@ -176,7 +176,7 @@ class SolutionFrame:
         self.fig = plt.figure(dpi=100)
         self.plot = self.fig.add_subplot(111)
         self.plot.axis('off')
-        self.sol = heatEquation.solveHeatEquation(np.array(main.input), h, airConductivity).transpose()
+        self.sol = hE.solveHeatEquation(np.array(main.input), h, airConductivity).transpose()
         self.plot.imshow(self.sol, interpolation='bilinear', cmap=cm.jet_r)
 
         # Canvas initialization
@@ -229,18 +229,19 @@ class MainFrame:
         self.solutionFrame.updatePlot(self)
 
 
-# ROOT
-root = tk.Tk()
-# allows quitting by clicking the 'X'       
-root.protocol("WM_DELETE_WINDOW", quit)
-# Resizing configuration
-root.columnconfigure(0, weight=1)
-root.rowconfigure(0, weight=1)
+def main():
+    # ROOT
+    root = tk.Tk()
+    # allows quitting by clicking the 'X'       
+    root.protocol("WM_DELETE_WINDOW", quit)
+    # Resizing configuration
+    root.columnconfigure(0, weight=1)
+    root.rowconfigure(0, weight=1)
 
-# MAINFRAME
-main = tk.Frame(root, padx=20, pady=20)
-main.grid(row=0, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
-main = MainFrame(main) 
+    # MAINFRAME
+    main = tk.Frame(root, padx=20, pady=20)
+    main.grid(row=0, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
+    main = MainFrame(main) 
 
 
-root.mainloop()
+    root.mainloop()

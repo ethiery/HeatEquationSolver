@@ -1,7 +1,7 @@
 # A library for running Cholesky factorization and Cholesky incomplete
 # factorization
 # author : Etienne THIERY
-import matgen
+import trunk.matgen
 from numpy import *
 
 def oldCompleteCholesky(M):

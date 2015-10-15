@@ -1,5 +1,3 @@
-import matgen
-import cholesky
 import numpy as np
 import scipy.linalg as splg
 import matplotlib.pyplot as plt
