@@ -1,4 +1,4 @@
-# heat-solver
+# heatEquationSolver
 A simple stationary heat equation solver
 
 You can learn all you need to know on this project here : http://ethiery.vvv.enseirb-matmeca.fr/heatEquation/heatEquation.html
